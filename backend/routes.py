@@ -7,11 +7,12 @@ router = APIRouter()
 
 # pydantic models
 class LoginRequest(BaseModel):
-    username: str
+    email: str
     password: str
 
 class RegistrationRequest(BaseModel):
     username: str
+    email: str
     password: str
 
 # use @ : decorator tells the fastapi that this is a route
@@ -26,7 +27,8 @@ def register(user:RegistrationRequest):
     
 
     new_user = User(
-        username = user.username, 
+        username = user.username,
+        email = user.email,
         password = user.password )
     db.add(new_user)
     db.commit()
@@ -38,7 +40,7 @@ def register(user:RegistrationRequest):
 def login(user: LoginRequest):
     db = SessionLocal()
     
-    db_user = db.query(User).filter(User.username == user.username, User.password == user.password).first()
+    db_user = db.query(User).filter(User.email == user.email, User.password == user.password).first()
     db.close()
     if db_user:
         return {"message": "Login Successful"}

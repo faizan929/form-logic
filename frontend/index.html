@@ -14,21 +14,44 @@
         <form id = "login-form">
             <div class= "input1">
                 <label for = "username">Username:</label>
-                <input type = "text" id = "username" placeholder = "Enter your username" required>
+                <input 
+                    id = "name"
+                    type = "text" 
+                    placeholder = "Enter your username" 
+                    required
+                />
             </div>
-               
+            
             <div class = "input2">
+                <label for = "email">Email:</label>
+                <input 
+                    id = "email"
+                    type = "email"
+                    placeholder = "Enter your email"
+                    required
+                />
+            </div>
+
+            <div class = "input3">
                 <label for = "password">Password:</label>
-                <input type = "password" id = "password" placeholder = "Enter your password" required>
+                <input 
+                    id = "password" 
+                    type = "password"
+                    placeholder = "Enter your password" 
+                    required
+                />
             </div>
 
             <button type = "submit">Submit</button>
+
+            <button type = "button">Register</button>
+
             <div class = "text-area">
-                <textarea>Thanks, any comments</textarea>
+                <textarea>Any comments</textarea>
             </div>
         </form>
 
-        <div id = "response"></div>
+      <p id = "response">Waiting...</p>
 
         <script src = "script.js"></script>
     </body>
